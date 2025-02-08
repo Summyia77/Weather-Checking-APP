@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="icon.png" >  
+
+  <title>Splash Screen</title>
+<style>
+    body{
+
+    }
+    #splash-screen {
+      background: linear-gradient(to bottom, blue, #4169E1, #ADD8E6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .splash-content {
+      text-align: center;
+      color: yellow; 
+    }
+
+    .splash-content img {
+      width: 450px;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out forwards; /* Added forwards */
+    }
+
+    .splash-content h1 {
+      position: absolute;
+      top: 440px;
+      opacity: 0; /* Initially hidden */
+      animation: fadeInH1 3s ease-in-out 3s forwards; /* 3s delay, forwards */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInH1 {
+      from {
+        opacity: 0;
+        transform: translateY(20px); /* Slide up from below */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+</style>
+</head>
+<body>
+  <div id="splash-screen">
+    <div class="splash-content">
+      <img src="icon.png" alt="Logo">
+      <h1>Welcome To My Weather Website</h1>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const splashScreen = document.getElementById('splash-screen');
+
+      setTimeout(() => {
+        window.location.href = "project.html"; 
+      }, 7000); 
+    });
+  </script>
+</body>
+</html>
