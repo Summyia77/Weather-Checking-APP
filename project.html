@@ -1,59 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="project.css">
-    <source src="project.js">
+  <link rel="shortcut icon" href="icon.png" >  
+
+  <title>Splash Screen</title>
+<style>
+    body{
+
+    }
+    #splash-screen {
+      background: linear-gradient(to bottom, blue, #4169E1, #ADD8E6);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .splash-content {
+      text-align: center;
+      color: yellow; 
+    }
+
+    .splash-content img {
+      width: 450px;
+      margin-bottom: 20px;
+      animation: fadeIn 3s ease-in-out forwards; /* Added forwards */
+    }
+
+    .splash-content h1 {
+      position: absolute;
+      top: 440px;
+      opacity: 0; /* Initially hidden */
+      animation: fadeInH1 3s ease-in-out 3s forwards; /* 3s delay, forwards */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInH1 {
+      from {
+        opacity: 0;
+        transform: translateY(20px); /* Slide up from below */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+</style>
 </head>
-
 <body>
-    <p class="error">
-        invalid city name
-      </p>
-    <div class="card">
-        <div class="first">
-      
-                <input type="text" placeholder="enter your city name" id="city"/>
+  <div id="splash-screen">
+    <div class="splash-content">
+      <img src="icon.png" alt="Logo">
+      <h1>Welcome To My Weather Website</h1>
+    </div>
+  </div>
 
-                <button> <img src="search.png" alt=""></button>
-               <br>
-            
-           
+  <script>
+    window.addEventListener('load', () => {
+      const splashScreen = document.getElementById('splash-screen');
 
-        </div>
-     
-
-        <div class="second">
-            <div class="weather">
-                <img src="rain.png" alt="" class="wheather_img">
-                <h1 class="temp">22°C</h1>
-                <h2 class="city">New York</h2>
-
-            </div>
-            <div class="details">
-                <div class="col">
-                    <img src="humidity.png" alt="">
-                    <div class="sub_detail">
-                        <p class="humidity">50%</p>
-                        <p>Humidity</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="wind.png" alt="">
-                    <div class="sub_detail">
-                        <p class="wind">15km\h</p>
-                        <p>wind speed</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="project.js">
-
-        </script>
-
+      setTimeout(() => {
+        window.location.href = "project.html"; 
+      }, 7000); 
+    });
+  </script>
 </body>
-
 </html>
